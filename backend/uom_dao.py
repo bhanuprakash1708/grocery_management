@@ -1,20 +1,19 @@
 
-def get_uoms(connection):
-    cursor = connection.cursor()
-    query = ("select * from uom")
+def get_uoms(db_conn):
+    cursor = db_conn.cursor()
+    query = "SELECT * FROM uom"
     cursor.execute(query)
-    response = []
+    uom_list = []
     for (uom_id, uom_name) in cursor:
-        response.append({
+        uom_list.append({
             'uom_id': uom_id,
             'uom_name': uom_name
         })
-    return response
+    return uom_list
 
 
 if __name__ == '__main__':
     from sql_connection import get_sql_connection
 
-    connection = get_sql_connection()
-    # print(get_all_products(connection))
-    print(get_uoms(connection))
+    db_conn = get_sql_connection()
+    print(get_uoms(db_conn))

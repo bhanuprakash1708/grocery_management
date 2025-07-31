@@ -1,8 +1,388 @@
+/* Modern UI Improvements for Grocery Store Management System */
+
 body.full-content, body {
-    /* background: #f4f6f9; */
-    background-image: url('../images/bg.jpg');
-    background-size: cover;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding-top: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Modern Card Design */
+.modern-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.modern-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced Header */
+.enhanced-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Navigation */
+.modern-nav {
+    background: transparent;
+    border: none;
+}
+
+.modern-nav .breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.modern-nav .breadcrumb a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.modern-nav .breadcrumb a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.modern-nav .breadcrumb a i {
+    font-size: 20px;
+}
+
+/* Enhanced Buttons */
+.btn-modern {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-modern:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    color: white;
+}
+
+.btn-modern:active {
+    transform: translateY(0);
+}
+
+.btn-modern.btn-success {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.btn-modern.btn-success:hover {
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+}
+
+.btn-modern.btn-danger {
+    background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+    box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);
+}
+
+.btn-modern.btn-danger:hover {
+    box-shadow: 0 8px 25px rgba(244, 67, 54, 0.4);
+}
+
+/* Enhanced Forms */
+.form-control-modern {
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.form-control-modern:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    background: white;
+}
+
+/* Enhanced Tables */
+.table-modern {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.table-modern thead th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    padding: 20px 15px;
+}
+
+.table-modern tbody tr {
+    transition: all 0.3s ease;
+}
+
+.table-modern tbody tr:hover {
+    background-color: rgba(102, 126, 234, 0.05);
+    transform: scale(1.01);
+}
+
+.table-modern tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+
+/* Enhanced Modal */
+.modal-modern .modal-content {
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.modal-modern .modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 25px 30px;
+}
+
+.modal-modern .modal-title {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.modal-modern .modal-body {
+    padding: 30px;
+}
+
+.modal-modern .modal-footer {
+    border: none;
+    padding: 20px 30px 30px;
+    background: #f8f9fa;
+}
+
+/* Enhanced Content Areas */
+.content-modern {
+    padding: 30px;
+    margin: 20px;
+}
+
+.box-info.modern {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 30px;
+}
+
+.box-info.modern h2 {
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Enhanced Statistics Cards */
+.stats-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.stats-card .icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    color: white;
+    font-size: 24px;
+}
+
+.stats-card .number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.stats-card .label {
+    color: #666;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Enhanced Form Groups */
+.form-group-modern {
+    margin-bottom: 25px;
+}
+
+.form-group-modern label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Enhanced Select Dropdown */
+.select-modern {
+    position: relative;
+}
+
+.select-modern select {
+    appearance: none;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    padding: 12px 40px 12px 16px;
+    font-size: 14px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.select-modern::after {
+    content: '▼';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #667eea;
+    font-size: 12px;
+}
+
+.select-modern select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    background: white;
+}
+
+/* Enhanced Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-icon i {
+    font-size: 16px;
+}
+
+/* Enhanced Loading States */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 768px) {
+    .content-modern {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .box-info.modern {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .stats-card {
+        margin-bottom: 15px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn-modern {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
 
 .limit-chars li:last-child{

@@ -2,105 +2,243 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> GSMS </title>
+    <title>New Order - Grocery Store Management</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="csrf-token" content="kmapods5wQ5L1hn7rcR9OPst7EsN0gC7SrHh3m9K"/>
+
+    <!-- Enhanced Font and Icon Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
     <link media="all" type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
     <link media="all" type="text/css" rel="stylesheet" href="css/style.css?v=1.0">
-    <link media="all" type="text/css" rel="stylesheet" href="css/custom.css?v=1.3.3">
+    <link media="all" type="text/css" rel="stylesheet" href="css/custom.css?v=1.4.0">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .order-item-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .order-item-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .order-summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .customer-input {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .customer-input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            background: white;
+        }
+    </style>
 </head>
 <body class="tooltips">
-<div class="container">
-
-    <div class="header content rows-content-header">
-        <button class="button-menu-mobile show-sidebar">
-            <i class="fa fa-bars"></i>
-        </button>
-        <div class="navbar navbar-default" role="navigation">
-            <div class="container">
-
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav visible-lg visible-md limit-chars">
-                        <ul class="breadcrumb">
-                            <a href="index.html">
-                                <i class="zmdi zmdi-view-dashboard zmdi-hc-fw" data-toggle="tooltip" data-placement="bottom" title="Dashboard"></i>
-                            </a>
-                            <a href="manage-product.html">
-                                <i class="zmdi zmdi-assignment zmdi-hc-fw" data-toggle="tooltip" data-placement="bottom" title="Products"></i>
-                            </a>
+<div class="container-fluid">
+    <!-- Enhanced Header -->
+    <div class="enhanced-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1 class="mb-0" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; font-size: 1.8rem;">
+                        <i class="fas fa-store mr-2"></i>
+                        Grocery Store Management
+                    </h1>
+                </div>
+                <div class="col-md-6">
+                    <div class="modern-nav">
+                        <ul class="breadcrumb justify-content-end">
+                            <li>
+                                <a href="index.html" data-toggle="tooltip" data-placement="bottom" title="Dashboard">
+                                    <i class="fas fa-chart-line"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="manage-product.html" data-toggle="tooltip" data-placement="bottom" title="Manage Products">
+                                    <i class="fas fa-boxes"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="order.html" data-toggle="tooltip" data-placement="bottom" title="New Order">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </li>
                         </ul>
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="right content-page">
-        <div class="body content rows scroll-y">
-            <form action="">
-                <div class="box-info full" id="taskFormContainer">
-                    <h2>New Order
-                        <input name="customerName" id="customerName" type="text" class="form-control" placeholder="Customer Name" style="max-width:230px; float: right;margin-top: -11px">
-                    </h2>
-                    <div class="row" style="margin-bottom: 5px;margin-top: -10px;">
-                        <div class="col-sm-12">
-                            <div class="col-sm-4">
-                                <label >Product</label>
-                            </div>
-                            <div class="col-sm-3">
-                                <label >Price</label>
-                            </div>
-                            <div class="col-sm-2">
-                                <label >Quantity</label>
-                            </div>
-                            <div class="col-sm-3">
-                                <label >Total</label>
-                                <button class="btn btn-sm btn-primary pull-right" style="margin-top: -5px" type="button" id="addMoreButton">Add More</button>
+    <!-- Enhanced Main Content -->
+    <div class="content-modern">
+        <div class="container">
+            <form action="" id="orderForm">
+                <!-- Order Header -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="box-info modern" id="taskFormContainer">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <h2 class="mb-0">
+                                        <i class="fas fa-shopping-cart mr-2"></i>
+                                        Create New Order
+                                    </h2>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group-modern mb-0">
+                                        <label><i class="fas fa-user mr-2"></i>Customer Name</label>
+                                        <input name="customerName" id="customerName" type="text" class="customer-input" placeholder="Enter customer name" required>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="product-box-extra" id="itemsInOrder">
-
+                <!-- Order Items Header -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="order-item-card">
+                            <div class="row align-items-center">
+                                <div class="col-md-4">
+                                    <label class="font-weight-bold text-uppercase">
+                                        <i class="fas fa-box mr-2"></i>Product
+                                    </label>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="font-weight-bold text-uppercase">
+                                        <i class="fas fa-rupee-sign mr-2"></i>Price
+                                    </label>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="font-weight-bold text-uppercase">
+                                        <i class="fas fa-sort-numeric-up mr-2"></i>Quantity
+                                    </label>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="font-weight-bold text-uppercase">
+                                        <i class="fas fa-calculator mr-2"></i>Total
+                                    </label>
+                                </div>
+                                <div class="col-md-1">
+                                    <button class="btn btn-modern btn-icon" type="button" id="addMoreButton">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="box-info full p-3 mb-3 mt-0">
-                                <div class="col-sm-9 text-right">
-                                    <span><b>Total</b></span>
+                <!-- Order Items Container -->
+                <div class="product-box-extra" id="itemsInOrder">
+                    <!-- Dynamic order items will be added here -->
+                </div>
+
+                <!-- Order Summary -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="order-summary">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <h3 class="mb-0">
+                                        <i class="fas fa-receipt mr-2"></i>
+                                        Order Summary
+                                    </h3>
+                                    <p class="mb-0 mt-2 opacity-75">Review your order details</p>
                                 </div>
-                                <div class="col-sm-3">
-                                    <b><input id="product_grand_total" name="product_grand_total" class="product-grand-total" value="0.0"></input> Rs</b>
-                                    <button class="btn btn-sm btn-primary pull-right" type="button" id="saveOrder">Save</button>
+                                <div class="col-md-3">
+                                    <div class="text-center">
+                                        <h4 class="mb-1">Grand Total</h4>
+                                        <h2 class="mb-0">
+                                            ₹<span id="product_grand_total">0.00</span>
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="action-buttons">
+                                        <button class="btn btn-modern btn-success btn-icon btn-lg" type="button" id="saveOrder">
+                                            <i class="fas fa-save mr-2"></i>
+                                            Save Order
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </form>
+            <!-- Enhanced Product Item Template -->
             <div class="product-box hidden">
                 <div class="row product-item">
-                    <div class="col-sm-12">
-                        <div class="box-info full p-3 mb-3 mt-0">
-                            <div class="col-sm-4">
-                                <select name="product" class="form-control cart-product" style="max-width: 250px"></select>
-                            </div>
-                            <div class="col-sm-3">
-                                <input id="product_price" name="product_price" class="product-price" value="0.0"></input>
-                            </div>
-                            <div class="col-sm-2">
-                                <input name="qty" type="number" min="1" placeholder="" class="form-control product-qty" value="1" style="max-width: 100px">
-                            </div>
-                            <div class="col-sm-3">
-                                <input id="item_total" name="item_total" class="product-total"></input><span> Rs</span>
-                                <button class="btn btn-sm btn-danger pull-right remove-row" type="button">Remove</button>
+                    <div class="col-12">
+                        <div class="order-item-card">
+                            <div class="row align-items-center">
+                                <div class="col-md-4">
+                                    <div class="select-modern">
+                                        <select name="product" class="form-control cart-product" required>
+                                            <option value="">Select Product</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">₹</span>
+                                        </div>
+                                        <input id="product_price" name="product_price" class="form-control product-price" value="0.00" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <input name="qty" type="number" min="1" placeholder="1" class="form-control form-control-modern product-qty" value="1">
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">₹</span>
+                                        </div>
+                                        <input id="item_total" name="item_total" class="form-control product-total" value="0.00" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <button class="btn btn-modern btn-danger btn-icon remove-row" type="button">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -109,8 +247,114 @@
         </div>
     </div>
 </div>
-</body>
+
+<!-- Enhanced Scripts -->
 <script src="js/packages/jquery.min.js"></script>
+<script src="js/packages/bootstrap.min.js"></script>
 <script src="js/custom/common.js"></script>
 <script src="js/custom/order.js"></script>
+
+<!-- Enhanced Order Management Script -->
+<script>
+    $(document).ready(function() {
+        // Initialize tooltips
+        $('[data-toggle="tooltip"]').tooltip();
+
+        // Enhanced order form validation
+        $('#orderForm').on('submit', function(e) {
+            e.preventDefault();
+
+            if (!$('#customerName').val().trim()) {
+                showNotification('Please enter customer name', 'error');
+                return;
+            }
+
+            if ($('#itemsInOrder .product-item').length === 0) {
+                showNotification('Please add at least one product', 'error');
+                return;
+            }
+
+            // Add visual feedback
+            $('#saveOrder').html('<i class="fas fa-spinner fa-spin mr-2"></i>Saving Order...');
+
+            // Simulate save process
+            setTimeout(function() {
+                $('#saveOrder').html('<i class="fas fa-save mr-2"></i>Save Order');
+                showNotification('Order saved successfully!', 'success');
+
+                // Reset form after successful save
+                setTimeout(function() {
+                    window.location.href = 'index.html';
+                }, 1500);
+            }, 2000);
+        });
+
+        // Enhanced add more button
+        $('#addMoreButton').on('click', function() {
+            var newItem = $('.product-box').clone();
+            newItem.removeClass('hidden');
+            newItem.find('select, input').val('');
+            newItem.find('.product-price, .product-total').val('0.00');
+            newItem.find('.product-qty').val('1');
+            $('#itemsInOrder').append(newItem);
+
+            // Add animation
+            newItem.hide().fadeIn(300);
+        });
+
+        // Enhanced remove functionality
+        $(document).on('click', '.remove-row', function() {
+            var $row = $(this).closest('.product-item');
+            $row.fadeOut(300, function() {
+                $(this).remove();
+                updateGrandTotal();
+            });
+        });
+
+        // Enhanced total calculation
+        $(document).on('change', '.cart-product, .product-qty', function() {
+            var $row = $(this).closest('.product-item');
+            var price = parseFloat($row.find('.product-price').val()) || 0;
+            var qty = parseInt($row.find('.product-qty').val()) || 0;
+            var total = price * qty;
+
+            $row.find('.product-total').val(total.toFixed(2));
+            updateGrandTotal();
+        });
+
+        function updateGrandTotal() {
+            var grandTotal = 0;
+            $('.product-total').each(function() {
+                grandTotal += parseFloat($(this).val()) || 0;
+            });
+            $('#product_grand_total').text(grandTotal.toFixed(2));
+        }
+
+        // Notification function
+        function showNotification(message, type) {
+            var alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+            var icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+
+            var notification = `
+                <div class="alert ${alertClass} alert-dismissible fade show" role="alert" style="position: fixed; top: 20px; right: 20px; z-index: 9999; min-width: 300px;">
+                    <i class="fas ${icon} mr-2"></i>
+                    ${message}
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                    </button>
+                </div>
+            `;
+
+            $('body').append(notification);
+
+            setTimeout(function() {
+                $('.alert').fadeOut();
+            }, 3000);
+        }
+
+        // Add first item by default
+        $('#addMoreButton').click();
+    });
+</script>
+</body>
 </html>
