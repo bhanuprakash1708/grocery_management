@@ -217,5 +217,3 @@ The Flask server runs on `localhost:5000` by default. You can modify the host an
 For support and questions, please create an issue in the repository or contact the development team.
 
 ---
-
-*Built with ❤️ for efficient grocery store management*
